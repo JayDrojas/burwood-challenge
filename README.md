@@ -1,1 +1,1 @@
-# burwood-challenge
+# fizzbuzz-challenge
