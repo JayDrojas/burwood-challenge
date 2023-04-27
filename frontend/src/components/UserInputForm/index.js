@@ -1,6 +1,5 @@
-import React, { useState, useReducer } from "react";
-import { createOrUpdateInput } from "../../App";
-import { reducer } from "../../App";
+import React, { useState } from "react";
+import { createOrUpdateInput } from "../utils/useInputReducer";
 
 function fizzBuzz(num) {
   if (num % 15 === 0) {
@@ -14,23 +13,16 @@ function fizzBuzz(num) {
   }
 }
 
-function UserInputForm() {
-  const [state, dispatch] = useReducer(reducer, {
-    data: [],
-  });
+function UserInputForm({ dispatch }) {
   const [result, setResult] = useState('');
-  // create a state variable to store the user input
   const [inputValue, setInputValue] = useState("");
 
-  // handle the user input
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
-  // handle the form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    // handle the submission logic here
     createOrUpdateInput(dispatch, inputValue);
     const fizzRes = fizzBuzz(parseInt(inputValue))
     setResult(fizzRes)
@@ -38,7 +30,7 @@ function UserInputForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Answer is : {result}</h1>
+      <h1>Answer is : {result                                                                                     }</h1>
       <label>
         Input:
         <input type="text" value={inputValue} onChange={handleInputChange} />
