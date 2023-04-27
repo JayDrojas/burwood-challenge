@@ -6,14 +6,12 @@ from bson.json_util import dumps
 
 number_routes = Blueprint('inputs', __name__)
 
-
 @number_routes.route('/')
 def get_numbers():
     result = list(db.db.collection.find({}).sort(
-        [("count", pymongo.DESCENDING)]))
+        [("count", pymongo.DESCENDING)]).limit(3))
 
     return dumps(result)
-
 
 @number_routes.route('/', methods=['POST'])
 def create_number():
@@ -31,8 +29,7 @@ def create_number():
 
     return jsonify('failed')
 
-
-@number_routes.route("/add")
-def api_get_all_inputs():
-    db.db.collection.insert_one({"user_input": 10, "count": 1})
-    return "Connected to the data base!"
+@number_routes.route("/all")
+def api_get_all_numbers():
+    result = list(db.db.collection.find_one({}))
+    return dumps(result)
