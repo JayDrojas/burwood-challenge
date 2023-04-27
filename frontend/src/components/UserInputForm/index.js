@@ -1,17 +1,6 @@
 import React, { useState } from "react";
 import { createOrUpdateInput } from "../utils/useInputReducer";
-
-function fizzBuzz(num) {
-  if (num % 15 === 0) {
-    return "FizzBuzz";
-  } else if (num % 3 === 0) {
-    return "Fizz";
-  } else if (num % 5 === 0) {
-    return "Buzz";
-  } else {
-    return num;
-  }
-}
+import fizzBuzz from "../utils/fizzBuzz";
 
 function UserInputForm({ dispatch }) {
   const [result, setResult] = useState("");
