@@ -1,6 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
+import { createOrUpdateInput } from "../../App";
+import { reducer } from "../../App";
+
+function fizzBuzz(num) {
+  if (num % 15 === 0) {
+    return "FizzBuzz";
+  } else if (num % 3 === 0) {
+    return "Fizz";
+  } else if (num % 5 === 0) {
+    return "Buzz";
+  } else {
+    return num;
+  }
+}
 
 function UserInputForm() {
+  const [state, dispatch] = useReducer(reducer, {
+    data: [],
+  });
+  const [result, setResult] = useState('');
   // create a state variable to store the user input
   const [inputValue, setInputValue] = useState("");
 
@@ -13,28 +31,14 @@ function UserInputForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // handle the submission logic here
-    console.log(`User input: ${inputValue}`);
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ user_input: inputValue }),
-    };
-
-    async function postInput() {
-      const response = await fetch(
-        "http://127.0.0.1:8000/api/inputs/",
-        requestOptions
-      );
-      const jsonData = await response.json();
-
-      console.log(jsonData);
-    }
-
-    postInput();
+    createOrUpdateInput(dispatch, inputValue);
+    const fizzRes = fizzBuzz(parseInt(inputValue))
+    setResult(fizzRes)
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      <h1>Answer is : {result}</h1>
       <label>
         Input:
         <input type="text" value={inputValue} onChange={handleInputChange} />

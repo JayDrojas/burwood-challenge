@@ -20,12 +20,14 @@ def create_number():
         {"user_input": int(input_data)}, {"$inc": {"count": 1}})
 
     if input_exists:
-        return jsonify("was updated")
+        return dumps(list(db.db.collection.find({}).sort(
+        [("count", pymongo.DESCENDING)]).limit(3)))
     
     input_create = db.db.collection.insert_one({"user_input": int(input_data), "count": 1})
 
     if input_create:
-        return jsonify("created")
+        return dumps(list(db.db.collection.find({}).sort(
+        [("count", pymongo.DESCENDING)]).limit(3)))
 
     return jsonify('failed')
 
