@@ -19,6 +19,7 @@ function UserInputForm({ dispatch }) {
 
   return (
     <div className="input-form">
+      <h2>FizzBuzz</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-item">
           <h2>{result ? `Result is : ${result}` : "Please Submit a number"}</h2>
