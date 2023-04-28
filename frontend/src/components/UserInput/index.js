@@ -1,3 +1,5 @@
+import "./UserInput.css"
+
 const UserInput = ({ input, rank }) => {
   return (
     <div key={input._id.$oid} className="user-input">

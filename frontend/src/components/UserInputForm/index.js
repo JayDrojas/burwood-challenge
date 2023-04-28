@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createOrUpdateInput } from "../utils/useInputReducer";
 import fizzBuzz from "../utils/fizzBuzz";
+import "./UserInputForm.css"
 
 function UserInputForm({ dispatch }) {
   const [result, setResult] = useState("");
