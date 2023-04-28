@@ -15,14 +15,24 @@ function App() {
 
   return (
     <div className="App">
-      <UserInputForm dispatch={dispatch} />
-      {state.data ? (
-        state.data.map((input) => (
-          <UserInput key={input._id.$oid} input={input} />
-        ))
-      ) : (
-        <></>
-      )}
+      <div className="main-container">
+        <div className="main-subcontainer-1">
+          <UserInputForm dispatch={dispatch} />
+        </div>
+        <div className="main-subcontainer-2">
+          <div className="user-input">
+            <h2>Leaderboard</h2>
+            <p>Top 3 scores of numbers inputed by the users.</p>
+          </div>
+          {state.data ? (
+            state.data.map((input, idx) => (
+              <UserInput key={input._id.$oid} rank={idx + 1} input={input} />
+            ))
+          ) : (
+            <></>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

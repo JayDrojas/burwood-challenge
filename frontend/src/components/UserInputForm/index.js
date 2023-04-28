@@ -18,14 +18,26 @@ function UserInputForm({ dispatch }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Answer is : {result}</h1>
-      <label>
-        Input:
-        <input type="text" value={inputValue} onChange={handleInputChange} />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+    <div className="input-form">
+      <form onSubmit={handleSubmit}>
+        <div className="form-item">
+          <h2>{result ? `Result is : ${result}` : "Please Submit a number"}</h2>
+        </div>
+        <div className="form-item">
+          <label>
+            Input:
+            <input
+              type="text"
+              value={inputValue}
+              onChange={handleInputChange}
+            />
+          </label>
+        </div>
+        <div className="form-item">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
   );
 }
 

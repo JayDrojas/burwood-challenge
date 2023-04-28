@@ -1,7 +1,8 @@
-const UserInput = ({ input }) => {
+const UserInput = ({ input, rank }) => {
   return (
-    <div key={input._id.$oid}>
-      <h2>Number used: {input.user_input}</h2>
+    <div key={input._id.$oid} className="user-input">
+      <h2>Rank: {rank}</h2>
+      <p>Number: {input.user_input}</p>
       <p>Times it was used: {input.count}</p>
     </div>
   );
