@@ -1,7 +1,7 @@
+import db
 import pymongo
 from bson.json_util import dumps
 from flask import Blueprint, jsonify, request
-import db
 
 input_routes = Blueprint('inputs', __name__)
 

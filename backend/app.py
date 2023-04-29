@@ -1,6 +1,4 @@
-import db
 import os
-import pymongo
 from bson.json_util import dumps
 from flask import Flask, jsonify
 from flask_cors import CORS
