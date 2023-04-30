@@ -13,6 +13,11 @@ function UserInputForm({ dispatch }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (isNaN(inputValue)) {
+      // The input value is not a number
+      setResult("Please enter a valid number");
+      return;
+    }
     createOrUpdateInput(dispatch, inputValue);
     const fizzRes = fizzBuzz(parseInt(inputValue));
     setResult(fizzRes);
