@@ -1,0 +1,46 @@
+version: '3.7'
+
+services:
+
+    client:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        tty: true
+        ports:
+            - "3000:3000"
+        volumes: 
+            - ./frontend:/app
+            - /app/node_modules
+        networks:
+            - frontend
+
+    api:
+        build: backend/
+        command: python -u app.py
+        ports:
+            - "5000:5000"
+        volumes:
+            - .:/backend
+        links:
+            - mongodb
+    mongodb:
+        image: mongo
+        hostname: test_mongodb
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=admin
+            - MONGO_INITDB_ROOT_PASSWORD=password
+            - MONGO_INITDB_DATABASE=webapp
+        ports:
+            - 27017:27017
+
+networks:
+    frontend:
+        driver: bridge
+    backend:
+        driver: bridge
+volumes:
+    mongodbdata:
+        driver: local
+    appdata:
+        driver: local

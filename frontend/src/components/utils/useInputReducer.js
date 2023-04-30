@@ -17,7 +17,7 @@ export const createOrUpdateInput = async (dispatch, inputValue) => {
     };
   
     const response = await fetch(
-      "http://127.0.0.1:8000/api/inputs/",
+      "http://127.0.0.1:5000/api/inputs/",
       requestOptions
     );
     const jsonData = await response.json();
@@ -26,7 +26,7 @@ export const createOrUpdateInput = async (dispatch, inputValue) => {
   };
   
 export const fetchTop3 = async (dispatch) => {
-    const response = await fetch("http://127.0.0.1:8000/api/inputs/");
+    const response = await fetch("http://127.0.0.1:5000/api/inputs/");
     const jsonData = await response.json();
     
     dispatch({ type: "GET_TOP_3", payload: jsonData });
