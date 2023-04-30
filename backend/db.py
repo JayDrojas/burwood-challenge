@@ -1,9 +1,9 @@
-import os
-from dotenv import load_dotenv
-from flask_pymongo import pymongo
+from pymongo import MongoClient
 
-load_dotenv()
-
-CONNECTION_STRING = os.environ.get("DATABASE_URL")
-client = pymongo.MongoClient(CONNECTION_STRING)
-db = client.get_database('flask_inputs')
+client = MongoClient(host='test_mongodb',
+                     port=27017,
+                     username='admin',
+                     password='password',
+                     authSource='admin')
+database = client['webapp']
+fizznumbers = database['fizznumbers']
