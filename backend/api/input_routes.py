@@ -13,7 +13,6 @@ def get_top_inputs():
     result = list(fizznumbers.find({}).sort(
         [("count", pymongo.DESCENDING)]).limit(TOP_LIMIT))
 
-    print(result)
     return dumps(result)
 
 @input_routes.route('/')
