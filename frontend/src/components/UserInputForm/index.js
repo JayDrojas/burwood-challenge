@@ -15,6 +15,7 @@ const handleSubmit = (event) => {
   event.preventDefault();
   if (isNaN(inputValue)) {
     // The input value is not a number
+    console.log('here')
     setResult("Please enter a valid number");
     return;
   }
@@ -41,7 +42,7 @@ const handleSubmit = (event) => {
           </label>
         </div>
         <div className="form-item">
-          <button type="submit">Submit</button>
+          <button disabled={inputValue.length === 0} type="submit">Submit</button>
         </div>
       </form>
     </div>
