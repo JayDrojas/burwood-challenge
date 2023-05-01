@@ -10,6 +10,10 @@ CORS(app)
 
 app.register_blueprint(input_routes, url_prefix='/api/inputs')
 
+@app.route("/")
+def api_home():
+    return jsonify("Home")
+
 @app.route('/initdb')
 def db_init():
     fizznumbers.insert_many([
@@ -19,10 +23,6 @@ def db_init():
         {"user_input": 3, "count": 1},
     ])
     return 'Data inserted successfully!'
-
-@app.route("/")
-def api_home():
-    return jsonify("Home")
 
 # Error handling
 @app.errorhandler(404)
