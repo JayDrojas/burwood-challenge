@@ -44,3 +44,17 @@ There are many ways we can handle scaling to support my FizzBuzz app like databa
 
 # Images to showcase app
 
+## Fizz, divisable by 3
+![image](https://user-images.githubusercontent.com/86801740/235403736-25fa460f-4e02-4d3a-a617-c85a0a845e4d.png)
+## Buzz, divisable by 5
+![image](https://user-images.githubusercontent.com/86801740/235403753-66bd9f2a-115b-45dd-b343-54acdcae1f69.png)
+## FizzBuz, divisable by 15
+![image](https://user-images.githubusercontent.com/86801740/235403767-39d6085c-eff7-4d87-b2bc-1645a25c5449.png)
+
+## Disabled button on no input
+![image](https://user-images.githubusercontent.com/86801740/235403799-573c06fd-658d-4b1b-be68-9a76025247e6.png)
+
+## Handle NaN
+![image](https://user-images.githubusercontent.com/86801740/235403815-4d80ffd5-a851-4a28-a7db-c6fdf6d52de6.png)
+
+
