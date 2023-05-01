@@ -1,11 +1,14 @@
-# Starting Up docker container 
+# Starting Up docker container
+
 ### Prerequisites
+
     1. Docker
 
 ### How to start docker container
- ```bsh
+
+```bsh
 docker-compose build && docker-compose up
- ```
+```
 
 # FizzBuzz Challenge Answers
 
@@ -36,5 +39,8 @@ To start off, I would find a free web hosting solution like Vercel and deploy my
 ### 4. After deploying your code, it seems to have gone viral as the most awesome app ever created in the history of time itself. How would you handle scaling and support your FizzBuzz app?
 
 ```
-There are many ways we can handle scaling to support my FizzBuzz app like database optimization, or setting up load balancing. 
+There are many ways we can handle scaling to support my FizzBuzz app like database optimization, or setting up load balancing.
 ```
+
+# Images to showcase app
+
