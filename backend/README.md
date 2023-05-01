@@ -1,4 +1,10 @@
 ## FizzBuzz Backend
+### Summary
+
+```
+Currently, it is set up so that we can just start up the Docker container, and we thought it would be easier to hardcode credentials for now (also due to time). No backend is necessary using Docker. In case we need to start the backend locally, some adjustments need to be made in our connection to MongoDB on the backend.
+```
+
 
 ### Prequsites 
 
